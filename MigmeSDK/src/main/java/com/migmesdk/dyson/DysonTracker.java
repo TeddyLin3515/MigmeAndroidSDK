@@ -6,8 +6,6 @@ import android.text.TextUtils;
 
 import com.migmesdk.BuildConfig;
 import com.migmesdk.dyson.data.DysonParameter;
-import com.migmesdk.dyson.data.DysonPreference;
-import com.migmesdk.dyson.data.DysonSession;
 import com.migmesdk.dyson.task.RunnableEvent;
 import com.migmesdk.dyson.task.RunnablePresenceEvent;
 import com.migmesdk.dyson.utility.DebugLog;
@@ -76,6 +74,6 @@ public class DysonTracker {
         DysonEventBuilders.ActionEventBuilder builder =
                 new DysonEventBuilders.ActionEventBuilder()
                         .setActionType(DysonParameter.ACTION.TYPE.PRESENCE);
-        mDysonHandler.sendPeriodEvent(new RunnablePresenceEvent(mContext, builder.topic, builder));
+        mDysonHandler.sendPeriodEvent(new RunnablePresenceEvent(mContext, builder.topic, builder, DysonSession.getInstance()));
     }
 }

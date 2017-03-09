@@ -1,4 +1,4 @@
-package com.migmesdk.dyson.data;
+package com.migmesdk.dyson;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -16,7 +16,7 @@ public class DysonPreference {
         static final DysonPreference sINSTANCE = new DysonPreference();
     }
 
-    public static DysonPreference getInstance() {
+    protected static DysonPreference getInstance() {
         return DysonPreferenceHolder.sINSTANCE;
     }
 

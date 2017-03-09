@@ -5,7 +5,7 @@ import android.content.Context;
 import com.migmesdk.dyson.Dyson;
 import com.migmesdk.dyson.DysonEventBuilders;
 import com.migmesdk.dyson.data.DysonParameter;
-import com.migmesdk.dyson.data.DysonSession;
+import com.migmesdk.dyson.DysonSession;
 import com.migmesdk.dyson.utility.AppTools;
 import com.migmesdk.dyson.utility.DebugLog;
 
@@ -17,10 +17,12 @@ public class RunnablePresenceEvent extends RunnableForegroundEvent {
     private DysonEventBuilders.ActionEventBuilder mBuilder;
     private long mRunTime = DysonParameter.HTTP.DEFAULT_PRESENCE_PERIOD;
     private boolean mIsBackground = false;
+    private DysonSession mDysonSession;
 
-    public RunnablePresenceEvent(Context context, String topic, DysonEventBuilders.ActionEventBuilder builder) {
+    public RunnablePresenceEvent(Context context, String topic, DysonEventBuilders.ActionEventBuilder builder, DysonSession dysonSession) {
         super(context, topic, builder);
         mBuilder = builder;
+        mDysonSession = dysonSession;
     }
 
     private void clearRunTime() {
@@ -46,9 +48,9 @@ public class RunnablePresenceEvent extends RunnableForegroundEvent {
     }
 
     private void checkSession() {
-        if (DysonSession.getInstance().isSessionExpire(mRunTime)) {
+        if (mDysonSession.isSessionExpire(mRunTime)) {
             clearRunTime();
-            DysonSession.getInstance().newSessionId();
+            mDysonSession.newSessionId();
             refresh();
         }
     }
@@ -70,7 +72,7 @@ public class RunnablePresenceEvent extends RunnableForegroundEvent {
     }
 
     private void send() {
-        if (mRunTime >= DysonSession.getInstance().getPresencePeriod() || isBackgroundToForeground()) {
+        if (mRunTime >= mDysonSession.getPresencePeriod() || isBackgroundToForeground()) {
             clearRunTime();
             refresh();
             sendRequest();

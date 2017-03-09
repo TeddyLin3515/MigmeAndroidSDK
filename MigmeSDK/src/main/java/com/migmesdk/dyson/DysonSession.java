@@ -1,12 +1,13 @@
-package com.migmesdk.dyson.data;
+package com.migmesdk.dyson;
 
+import com.migmesdk.dyson.data.DysonParameter;
 import com.migmesdk.dyson.utility.Tools;
 
 /**
  * Created by teddylin on 03/03/2017.
  */
 public class DysonSession {
-    public static final String DEFAULT_TOPIC = DysonParameter.TOPIC.THIRD_PARTY_GAME;
+    protected static final String DEFAULT_TOPIC = DysonParameter.TOPIC.THIRD_PARTY_GAME;
 
     private DysonSession(){}
 
@@ -14,7 +15,7 @@ public class DysonSession {
         private static final DysonSession INSTANCE = new DysonSession();
     }
 
-    public static DysonSession getInstance() {
+    protected static DysonSession getInstance() {
         return SingletonHelper.INSTANCE;
     }
 
@@ -29,51 +30,51 @@ public class DysonSession {
     private String topic;
     private long presencePeriod;
 
-    public String getMigmeId() {
+    protected String getMigmeId() {
         return migmeId;
     }
 
-    public void setMigmeId(String migmeId) {
+    protected void setMigmeId(String migmeId) {
         this.migmeId = migmeId;
     }
 
-    public String getProjectName() {
+    protected String getProjectName() {
         return projectName;
     }
 
-    public void setProjectName(String projectName) {
+    protected void setProjectName(String projectName) {
         this.projectName = projectName;
     }
 
-    public String getProjectUID() {
+    protected String getProjectUID() {
         return projectUID;
     }
 
-    public void setProjectUID(String projectUID) {
+    protected void setProjectUID(String projectUID) {
         this.projectUID = projectUID;
     }
 
-    public String getIpAddress() {
+    protected String getIpAddress() {
         return ipAddress;
     }
 
-    public void setIpAddress(String ipAddress) {
+    protected void setIpAddress(String ipAddress) {
         this.ipAddress = ipAddress;
     }
 
-    public String getAppType() {
+    protected String getAppType() {
         return appType;
     }
 
-    public void setAppType(String appType) {
+    protected void setAppType(String appType) {
         this.appType = appType;
     }
 
-    public String getSdkVersion() {
+    protected String getSdkVersion() {
         return sdkVersion;
     }
 
-    public void setSdkVersion(String sdkVersion) {
+    protected void setSdkVersion(String sdkVersion) {
         this.sdkVersion = sdkVersion;
     }
 
@@ -81,7 +82,7 @@ public class DysonSession {
         return presencePeriod;
     }
 
-    public void setPresencePeriod(long presencePeriod) {
+    protected void setPresencePeriod(long presencePeriod) {
         if (presencePeriod < DysonParameter.HTTP.MIN_PRESENCE_PERIOD ||
                 presencePeriod > DysonParameter.HTTP.MAX_PRESENCE_PERIOD) {
             presencePeriod = DysonParameter.HTTP.DEFAULT_PRESENCE_PERIOD;
@@ -89,7 +90,7 @@ public class DysonSession {
         this.presencePeriod = presencePeriod;
     }
 
-    public String getSessionId() {
+    protected String getSessionId() {
         return sessionId;
     }
 
@@ -97,19 +98,19 @@ public class DysonSession {
         this.sessionId = sessionId;
     }
 
-    public String getCookieId() {
+    protected String getCookieId() {
         return cookieId;
     }
 
-    public void setCookieId(String cookieId) {
+    protected void setCookieId(String cookieId) {
         this.cookieId = cookieId;
     }
 
-    public String getTopic() {
+    protected String getTopic() {
         return topic;
     }
 
-    public void setTopic(String topic) {
+    protected void setTopic(String topic) {
         this.topic = topic;
     }
 
@@ -121,7 +122,7 @@ public class DysonSession {
         setSessionId(Tools.generateBase62String());
     }
 
-    public void newCookieId() {
+    protected void newCookieId() {
         setCookieId(Tools.generateBase62String());
     }
 }

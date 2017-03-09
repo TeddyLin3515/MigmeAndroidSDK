@@ -4,7 +4,6 @@ package com.migmesdk.dyson;
 import android.content.Context;
 
 import com.migmesdk.dyson.data.DysonParameter;
-import com.migmesdk.dyson.data.DysonSession;
 
 /**
  * Created by teddylin on 03/03/2017.
