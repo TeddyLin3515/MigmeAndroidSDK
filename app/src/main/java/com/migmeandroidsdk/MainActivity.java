@@ -13,7 +13,6 @@ import com.migmesdk.dyson.Dyson;
 import com.migmesdk.dyson.DysonEventBuilders;
 import com.migmesdk.dyson.DysonTracker;
 import com.migmesdk.dyson.data.DysonParameter;
-import com.migmesdk.dyson.data.DysonSession;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -33,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
         migmeId = (EditText) findViewById(R.id.editText);
         mTracker = Dyson.getInstance().newTracker(getApplicationContext(), "migme_test", "554433221100", 10000);
         Dyson.getInstance().setDebugMode(true);
-        DysonSession
         buildLogMsg("Initialize done...");
         buildLogMsg("Debug mode >>> "+Dyson.getInstance().DEBUG_MODE);
     }
