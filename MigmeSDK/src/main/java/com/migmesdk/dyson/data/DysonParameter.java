@@ -7,6 +7,8 @@ public class DysonParameter {
     public static class HTTP {
         public static final int CONNECTION_TIMEOUT = 3000;
         public static final int DATA_RETRIEVAL_TIMEOUT = 3000;
+        public static final int MAX_PRESENCE_PERIOD = 300000; //5 minutes [unit:millisecond]
+        public static final int MIN_PRESENCE_PERIOD = 10000; //10 seconds [unit:millisecond]
         public static final int DEFAULT_PRESENCE_PERIOD = 60000; //one minute [unit:millisecond]
         public static final long SESSION_EXPIRE_TIME = 1800000; //30min[milliseconds]
         public static final String URL = "http://i13n.mig.me/dyson";

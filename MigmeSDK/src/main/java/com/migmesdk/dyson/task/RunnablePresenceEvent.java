@@ -70,7 +70,7 @@ public class RunnablePresenceEvent extends RunnableForegroundEvent {
     }
 
     private void send() {
-        if (mRunTime >= DysonParameter.HTTP.DEFAULT_PRESENCE_PERIOD || isBackgroundToForeground()) {
+        if (mRunTime >= DysonSession.getInstance().getPresencePeriod() || isBackgroundToForeground()) {
             clearRunTime();
             refresh();
             sendRequest();

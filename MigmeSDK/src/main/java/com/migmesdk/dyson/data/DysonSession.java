@@ -82,6 +82,10 @@ public class DysonSession {
     }
 
     public void setPresencePeriod(long presencePeriod) {
+        if (presencePeriod < DysonParameter.HTTP.MIN_PRESENCE_PERIOD ||
+                presencePeriod > DysonParameter.HTTP.MAX_PRESENCE_PERIOD) {
+            presencePeriod = DysonParameter.HTTP.DEFAULT_PRESENCE_PERIOD;
+        }
         this.presencePeriod = presencePeriod;
     }
 
