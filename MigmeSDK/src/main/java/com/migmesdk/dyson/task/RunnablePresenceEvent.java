@@ -72,7 +72,7 @@ public class RunnablePresenceEvent extends RunnableForegroundEvent {
     }
 
     private void send() {
-        if (mRunTime >= mDysonSession.getPresencePeriod() || isBackgroundToForeground()) {
+        if (isBackgroundToForeground() || mRunTime >= mDysonSession.getPresencePeriod()) {
             clearRunTime();
             refresh();
             sendRequest();
