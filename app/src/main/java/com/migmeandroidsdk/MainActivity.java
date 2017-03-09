@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -31,18 +32,19 @@ public class MainActivity extends AppCompatActivity {
         ((TextView) findViewById(R.id.textView4)).setMovementMethod(new ScrollingMovementMethod());
         migmeId = (EditText) findViewById(R.id.editText);
         mTracker = Dyson.getInstance().newTracker(getApplicationContext(), "migme_test", "554433221100", 10000);
+        mTracker.setDefaultTopic(DysonParameter.TOPIC.THIRD_PARTY_GAME);
         Dyson.getInstance().setDebugMode(true);
         buildLogMsg("Initialize done...");
         buildLogMsg("Debug mode >>> "+Dyson.getInstance().DEBUG_MODE);
     }
 
     public void sendAchievementEvent(View view) {
-        ArrayList<String> achievementevent = new ArrayList<String>();
+        ArrayList<String> achievementevent = new ArrayList<>();
         mTracker.send(new DysonEventBuilders.ActionEventBuilder()
                 .setActionType(DysonParameter.ACTION.TYPE.ACHIEVEMENT)
-                .setActionValue(1234)
+                .setActionValue(4893311)
                 .setActionDescription("description qer")
-                .setCustomizedInt(1234134)
+                .setCustomizedInt(239853)
                 .setCustomizedString("fdasdfadsf")
                 .setCustomizedStringarray(achievementevent)
                 .setUserId("41234gfsdgdsf"));
@@ -90,6 +92,19 @@ public class MainActivity extends AppCompatActivity {
         mTracker.send(new DysonEventBuilders.ActionEventBuilder()
                 .setActionType(DysonParameter.ACTION.TYPE.PRESENCE));
         buildLogMsg("sendPresenceEvent");
+    }
+
+    public void clearMigmeId(View view) {
+        mTracker.clearMigmeId();
+        binding.setMigmeId("");
+        migmeId.setText("");
+        buildLogMsg("clearMigmeId");
+    }
+
+    public void changeMode(View view) {
+        CheckBox checkBox = (CheckBox) view;
+        buildLogMsg((checkBox.isChecked() ? "Enable" : "Disable") + " debug mode.");
+        Dyson.setDebugMode(checkBox.isChecked());
     }
 
     public void buildLogMsg(String log) {

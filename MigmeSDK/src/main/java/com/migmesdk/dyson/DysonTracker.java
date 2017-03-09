@@ -66,10 +66,6 @@ public class DysonTracker {
         mDysonHandler.sendEvent(new RunnableEvent(mContext, builder.topic, builder.build()));
     }
 
-    public void send(String topic, String data) {
-        mDysonHandler.sendEvent(new RunnableEvent(mContext, topic, data));
-    }
-
     public void runPresenceEvent() {
         DysonEventBuilders.ActionEventBuilder builder =
                 new DysonEventBuilders.ActionEventBuilder()
