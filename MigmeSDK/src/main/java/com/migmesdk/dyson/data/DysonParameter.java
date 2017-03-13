@@ -21,11 +21,6 @@ public class DysonParameter {
 
     public static class TOPIC {
         public static final String THIRD_PARTY_GAME = "/3pty_game";
-        public static final String USER_INFO = "/cli_user_info";
-        public static final String PAGE_VIEW = "/cli_page_view";
-        public static final String SEARCH = "/cli_search";
-        public static final String SCROLL = "/cli_scroll";
-        public static final String CLICK = "/cli_click";
     }
 
     public static class ACTION {
@@ -35,7 +30,6 @@ public class DysonParameter {
             public static final String SHARE = "share";
             public static final String INVITE = "invite";
             public static final String PRESENCE = "presence";
-            public static final String SCORE = "score";
             public static final String ACHIEVEMENT = "achievement";
         }
     }

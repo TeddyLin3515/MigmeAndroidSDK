@@ -49,11 +49,6 @@ public class DysonEventBuilders {
             event.getData().getUserinfo().setId(userId);
             return this;
         }
-
-        public ActionEventBuilder setTopic(String topic) {
-            this.topic = topic;
-            return this;
-        }
     }
 
     public static class EventBuilder {

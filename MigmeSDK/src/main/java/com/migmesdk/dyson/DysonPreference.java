@@ -28,7 +28,7 @@ public class DysonPreference {
         if (mPreferences != null) {
             SharedPreferences.Editor editor = mPreferences.edit();
             editor.putString(DYSON_COOKIE_ID, cookieId);
-            editor.commit();
+            editor.apply();
         }
     }
 

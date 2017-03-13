@@ -46,7 +46,7 @@ public class DysonTracker {
         }
     }
 
-    public void setDefaultTopic(String topic) {
+    private void setDefaultTopic(String topic) {
         DysonSession.getInstance().setTopic(topic);
     }
 

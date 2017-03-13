@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
         ((TextView) findViewById(R.id.textView4)).setMovementMethod(new ScrollingMovementMethod());
         migmeId = (EditText) findViewById(R.id.editText);
         mTracker = Dyson.getInstance().newTracker(getApplicationContext(), "migme_test", "554433221100", 10000);
-        mTracker.setDefaultTopic(DysonParameter.TOPIC.THIRD_PARTY_GAME);
         Dyson.getInstance().setDebugMode(true);
         buildLogMsg("Initialize done...");
         buildLogMsg("Debug mode >>> "+Dyson.getInstance().DEBUG_MODE);
@@ -76,9 +75,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void sendScoreEvent(View view) {
-        mTracker.send(new DysonEventBuilders.ActionEventBuilder()
-                .setActionType(DysonParameter.ACTION.TYPE.SCORE));
-        buildLogMsg("sendScoreEvent");
+        buildLogMsg("disable sendScoreEvent");
     }
 
     public void setMigmeId(View view) {

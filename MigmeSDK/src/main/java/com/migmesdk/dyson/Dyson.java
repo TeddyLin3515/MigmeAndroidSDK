@@ -28,7 +28,7 @@ public class Dyson {
         return newTracker(context, projectName, projectUID, DysonSession.DEFAULT_TOPIC, DysonParameter.HTTP.DEFAULT_PRESENCE_PERIOD);
     }
 
-    public DysonTracker newTracker(Context context, String projectName, String projectUID, String topic) {
+    private DysonTracker newTracker(Context context, String projectName, String projectUID, String topic) {
         return newTracker(context, projectName, projectUID, topic, DysonParameter.HTTP.DEFAULT_PRESENCE_PERIOD);
     }
 
