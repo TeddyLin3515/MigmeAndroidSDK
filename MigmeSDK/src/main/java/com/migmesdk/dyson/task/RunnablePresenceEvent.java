@@ -32,7 +32,7 @@ public class RunnablePresenceEvent extends RunnableForegroundEvent {
     @Override
     public void run() {
         mRunTime += DysonParameter.RUNNABLE.DEFAULT_PERIOD;
-        DebugLog.d(Dyson.TAG, "Running time : " + mRunTime / 1000 + "s");
+//        DebugLog.d(Dyson.TAG, "Running time : " + mRunTime / 1000 + "s");
         if (!AppTools.isAppOnForeground(mContext)) {
             shouldClearRunTime();
             checkSession();
