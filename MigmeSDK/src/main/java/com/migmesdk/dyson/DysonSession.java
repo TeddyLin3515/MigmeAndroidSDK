@@ -1,5 +1,6 @@
 package com.migmesdk.dyson;
 
+import com.migmesdk.BuildConfig;
 import com.migmesdk.dyson.data.DysonParameter;
 import com.migmesdk.dyson.utility.Tools;
 
@@ -7,8 +8,6 @@ import com.migmesdk.dyson.utility.Tools;
  * Created by teddylin on 03/03/2017.
  */
 public class DysonSession {
-    protected static final String DEFAULT_TOPIC = DysonParameter.TOPIC.THIRD_PARTY_GAME;
-
     private DysonSession(){}
 
     private static class SingletonHelper {

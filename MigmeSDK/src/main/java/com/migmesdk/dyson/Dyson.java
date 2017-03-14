@@ -2,7 +2,9 @@ package com.migmesdk.dyson;
 
 
 import android.content.Context;
+import android.util.Base64;
 
+import com.migmesdk.BuildConfig;
 import com.migmesdk.dyson.data.DysonParameter;
 
 /**
@@ -11,6 +13,7 @@ import com.migmesdk.dyson.data.DysonParameter;
 public class Dyson {
     public static final String TAG = "Dyson";
     public static boolean DEBUG_MODE = false;
+    private DysonTracker mDysonTracker;
 
     private static class SingletonHelper {
         private static final Dyson INSTANCE = new Dyson();
@@ -25,22 +28,20 @@ public class Dyson {
     }
 
     public DysonTracker newTracker(Context context, String projectName, String projectUID) {
-        return newTracker(context, projectName, projectUID, DysonSession.DEFAULT_TOPIC, DysonParameter.HTTP.DEFAULT_PRESENCE_PERIOD);
-    }
-
-    private DysonTracker newTracker(Context context, String projectName, String projectUID, String topic) {
-        return newTracker(context, projectName, projectUID, topic, DysonParameter.HTTP.DEFAULT_PRESENCE_PERIOD);
+        return newTracker(context, projectName, projectUID, new String(Base64.decode(BuildConfig.DYSON_PARAM_B, Base64.DEFAULT)), DysonParameter.HTTP.DEFAULT_PRESENCE_PERIOD);
     }
 
     public DysonTracker newTracker(Context context, String projectName, String projectUID, long presencePeriod) {
-        return newTracker(context, projectName, projectUID, DysonSession.DEFAULT_TOPIC, presencePeriod);
+        return newTracker(context, projectName, projectUID, new String(Base64.decode(BuildConfig.DYSON_PARAM_B, Base64.DEFAULT)), presencePeriod);
     }
 
-    public DysonTracker newTracker(Context context, String projectName, String projectUID, String topic, long presencePeriod) {
+    private DysonTracker newTracker(Context context, String projectName, String projectUID, String topic, long presencePeriod) {
         synchronized(this) {
-            DysonTracker dysonTracker = new DysonTracker();
-            dysonTracker.initialize(context, projectName, projectUID, topic, presencePeriod);
-            return dysonTracker;
+            if (mDysonTracker == null) {
+                mDysonTracker = new DysonTracker();
+                mDysonTracker.initialize(context, projectName, projectUID, topic, presencePeriod);
+            }
+            return mDysonTracker;
         }
     }
 }

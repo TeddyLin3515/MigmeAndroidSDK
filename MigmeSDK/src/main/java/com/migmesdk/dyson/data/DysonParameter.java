@@ -11,16 +11,11 @@ public class DysonParameter {
         public static final int MIN_PRESENCE_PERIOD = 10000; //10 seconds [unit:millisecond]
         public static final int DEFAULT_PRESENCE_PERIOD = 60000; //one minute [unit:millisecond]
         public static final long SESSION_EXPIRE_TIME = 1800000; //30min[milliseconds]
-        public static final String URL = "http://i13n.mig.me/dyson";
         public static final String CONTENT_TYPE = "application/json";
         public static final String METHOD = "POST";
     }
     public static class RUNNABLE {
         public static final int DEFAULT_PERIOD = 1000; //one second [unit:millisecond]
-    }
-
-    public static class TOPIC {
-        public static final String THIRD_PARTY_GAME = "/3pty_game";
     }
 
     public static class ACTION {
