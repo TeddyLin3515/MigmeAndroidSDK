@@ -1,4 +1,4 @@
-package com.migmesdk.dyson.data;
+package com.migme.dyson.data;
 
 import com.google.gson.annotations.SerializedName;
 

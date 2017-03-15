@@ -1,14 +1,14 @@
-package com.migmesdk.dyson;
+package com.migme.dyson;
 
 
 import android.content.Context;
 import android.text.TextUtils;
 
-import com.migmesdk.BuildConfig;
-import com.migmesdk.dyson.data.DysonParameter;
-import com.migmesdk.dyson.task.RunnableEvent;
-import com.migmesdk.dyson.task.RunnablePresenceEvent;
-import com.migmesdk.dyson.utility.DebugLog;
+import com.migme.BuildConfig;
+import com.migme.dyson.data.DysonParameter;
+import com.migme.dyson.task.RunnableEvent;
+import com.migme.dyson.task.RunnablePresenceEvent;
+import com.migme.dyson.utility.DebugLog;
 
 /**
  * Created by teddylin on 04/03/2017.
@@ -58,7 +58,7 @@ public class DysonTracker {
         DysonSession.getInstance().setIpAddress(ipAddress);
     }
 
-    public void clearMigmeId() {
+    public void cleanMigmeId() {
         DysonSession.getInstance().setMigmeId(null);
     }
 

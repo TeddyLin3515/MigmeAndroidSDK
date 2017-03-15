@@ -1,4 +1,4 @@
-package com.migmesdk.dyson.data;
+package com.migme.dyson.data;
 
 /**
  * Created by teddylin on 06/03/2017.

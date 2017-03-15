@@ -1,4 +1,4 @@
-package com.migmesdk.dyson.task;
+package com.migme.dyson.task;
 
 import android.content.Context;
 

@@ -1,12 +1,12 @@
-package com.migmesdk.dyson.task;
+package com.migme.dyson.task;
 
 import android.content.Context;
 import android.util.Base64;
 
-import com.migmesdk.BuildConfig;
-import com.migmesdk.dyson.Dyson;
-import com.migmesdk.dyson.data.DysonParameter;
-import com.migmesdk.dyson.utility.DebugLog;
+import com.migme.BuildConfig;
+import com.migme.dyson.Dyson;
+import com.migme.dyson.data.DysonParameter;
+import com.migme.dyson.utility.DebugLog;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -56,16 +56,16 @@ public class RequestTask {
             }
 
             int statusCode = urlConnection.getResponseCode();
-            DebugLog.d(Dyson.TAG, "Sent dyson event >>> statusCode : " + statusCode+"\n");
+            DebugLog.d(Dyson.TAG, "Dyson event sent >>> statusCode : " + statusCode+"\n");
         } catch (MalformedURLException e) {
             e.printStackTrace();
-            DebugLog.d(Dyson.TAG, "Send dyson event fail >>> " + e.getMessage() + "\n");
+            DebugLog.d(Dyson.TAG, "Dyson event send fail >>> " + e.getMessage() + "\n");
         } catch (SocketTimeoutException e) {
             e.printStackTrace();
-            DebugLog.d(Dyson.TAG, "Send dyson event fail >>> " + e.getMessage() + "\n");
+            DebugLog.d(Dyson.TAG, "Dyson event send fail >>> " + e.getMessage() + "\n");
         } catch (IOException e) {
             e.printStackTrace();
-            DebugLog.d(Dyson.TAG, "Send dyson event fail >>> " + e.getMessage() + "\n");
+            DebugLog.d(Dyson.TAG, "Dyson event send fail >>> " + e.getMessage() + "\n");
         } finally {
             if (urlConnection != null) {
                 urlConnection.disconnect();

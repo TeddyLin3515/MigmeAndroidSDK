@@ -1,8 +1,7 @@
-package com.migmesdk.dyson;
+package com.migme.dyson;
 
-import com.migmesdk.BuildConfig;
-import com.migmesdk.dyson.data.DysonParameter;
-import com.migmesdk.dyson.utility.Tools;
+import com.migme.dyson.data.DysonParameter;
+import com.migme.dyson.utility.Tools;
 
 /**
  * Created by teddylin on 03/03/2017.

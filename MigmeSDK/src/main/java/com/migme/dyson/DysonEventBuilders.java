@@ -1,7 +1,7 @@
-package com.migmesdk.dyson;
+package com.migme.dyson;
 
 import com.google.gson.Gson;
-import com.migmesdk.dyson.data.Event;
+import com.migme.dyson.data.Event;
 
 import java.util.List;
 

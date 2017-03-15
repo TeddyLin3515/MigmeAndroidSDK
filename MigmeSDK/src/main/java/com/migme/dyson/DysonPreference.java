@@ -1,4 +1,4 @@
-package com.migmesdk.dyson;
+package com.migme.dyson;
 
 import android.content.Context;
 import android.content.SharedPreferences;

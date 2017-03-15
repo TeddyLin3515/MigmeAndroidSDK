@@ -184,7 +184,7 @@
             android:layout_marginLeft="13dp"
             android:layout_marginTop="8dp"
             android:text="Clear Migme ID"
-            android:onClick="clearMigmeId"
+            android:onClick="cleanMigmeId"
             app:layout_constraintLeft_toRightOf="@+id/button5"
             app:layout_constraintTop_toBottomOf="@+id/button3" />
 

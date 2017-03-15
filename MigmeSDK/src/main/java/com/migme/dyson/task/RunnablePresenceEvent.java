@@ -1,13 +1,11 @@
-package com.migmesdk.dyson.task;
+package com.migme.dyson.task;
 
 import android.content.Context;
 
-import com.migmesdk.dyson.Dyson;
-import com.migmesdk.dyson.DysonEventBuilders;
-import com.migmesdk.dyson.data.DysonParameter;
-import com.migmesdk.dyson.DysonSession;
-import com.migmesdk.dyson.utility.AppTools;
-import com.migmesdk.dyson.utility.DebugLog;
+import com.migme.dyson.DysonEventBuilders;
+import com.migme.dyson.data.DysonParameter;
+import com.migme.dyson.DysonSession;
+import com.migme.dyson.utility.AppTools;
 
 /**
  * Created by teddylin on 08/03/2017.

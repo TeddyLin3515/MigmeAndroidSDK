@@ -1,4 +1,4 @@
-package com.migmesdk;
+package com.migme;
 
 import org.junit.Test;
 

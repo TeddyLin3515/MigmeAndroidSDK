@@ -1,4 +1,4 @@
-package com.migmesdk.dyson.utility;
+package com.migme.dyson.utility;
 
 import java.util.Random;
 

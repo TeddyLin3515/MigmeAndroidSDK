@@ -1,18 +1,18 @@
-package com.migmesdk.dyson;
+package com.migme.dyson;
 
 
 import android.content.Context;
 import android.util.Base64;
 
-import com.migmesdk.BuildConfig;
-import com.migmesdk.dyson.data.DysonParameter;
+import com.migme.BuildConfig;
+import com.migme.dyson.data.DysonParameter;
+import com.migme.dyson.utility.DebugLog;
 
 /**
  * Created by teddylin on 03/03/2017.
  */
 public class Dyson {
     public static final String TAG = "Dyson";
-    public static boolean DEBUG_MODE = false;
     private DysonTracker mDysonTracker;
 
     private static class SingletonHelper {
@@ -23,8 +23,12 @@ public class Dyson {
         return SingletonHelper.INSTANCE;
     }
 
-    public static void setDebugMode(boolean debugMode) {
-        DEBUG_MODE = debugMode;
+    public void setDebugMode(boolean debugMode) {
+        DebugLog.setDebugMode(debugMode);
+    }
+
+    public boolean isDebugMode() {
+        return DebugLog.isDebugMode();
     }
 
     public DysonTracker newTracker(Context context, String projectName, String projectUID) {

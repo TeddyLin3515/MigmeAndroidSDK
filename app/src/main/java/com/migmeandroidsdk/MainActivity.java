@@ -9,11 +9,11 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.migme.dyson.Dyson;
+import com.migme.dyson.DysonEventBuilders;
+import com.migme.dyson.DysonTracker;
+import com.migme.dyson.data.DysonParameter;
 import com.migmeandroidsdk.databinding.ActivityMainBinding;
-import com.migmesdk.dyson.Dyson;
-import com.migmesdk.dyson.DysonEventBuilders;
-import com.migmesdk.dyson.DysonTracker;
-import com.migmesdk.dyson.data.DysonParameter;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         mTracker = Dyson.getInstance().newTracker(getApplicationContext(), "migme_test", "554433221100", 10000);
         Dyson.getInstance().setDebugMode(true);
         buildLogMsg("Initialize done...");
-        buildLogMsg("Debug mode >>> "+Dyson.getInstance().DEBUG_MODE);
+        buildLogMsg("Debug mode >>> "+Dyson.getInstance().isDebugMode());
     }
 
     public void sendAchievementEvent(View view) {
@@ -91,8 +91,8 @@ public class MainActivity extends AppCompatActivity {
         buildLogMsg("sendPresenceEvent");
     }
 
-    public void clearMigmeId(View view) {
-        mTracker.clearMigmeId();
+    public void cleanMigmeId(View view) {
+        mTracker.cleanMigmeId();
         binding.setMigmeId("");
         migmeId.setText("");
         buildLogMsg("clearMigmeId");
@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
     public void changeMode(View view) {
         CheckBox checkBox = (CheckBox) view;
         buildLogMsg((checkBox.isChecked() ? "Enable" : "Disable") + " debug mode.");
-        Dyson.setDebugMode(checkBox.isChecked());
+        Dyson.getInstance().setDebugMode(checkBox.isChecked());
     }
 
     public void buildLogMsg(String log) {

@@ -1,6 +1,6 @@
-package com.migmesdk.dyson;
+package com.migme.dyson;
 
-import com.migmesdk.dyson.data.DysonParameter;
+import com.migme.dyson.data.DysonParameter;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
