@@ -50,6 +50,14 @@ public class DysonTracker {
         DysonSession.getInstance().setTopic(topic);
     }
 
+    public void setProjectUserId(String uid) {
+        DysonSession.getInstance().setProjectUID(uid);
+    }
+
+    public void clearProjectUserId() {
+        DysonSession.getInstance().setProjectUID(null);
+    }
+
     public void setMigmeId(String migmeId) {
         DysonSession.getInstance().setMigmeId(migmeId);
     }
@@ -58,11 +66,12 @@ public class DysonTracker {
         DysonSession.getInstance().setIpAddress(ipAddress);
     }
 
-    public void cleanMigmeId() {
+    public void clearMigmeId() {
         DysonSession.getInstance().setMigmeId(null);
     }
 
     public void send(DysonEventBuilders.ActionEventBuilder builder) {
+        DebugLog.d(Dyson.TAG, "Send dyson event >>> " + builder.getEvent().getData().getEvenInfo().getAction().getType() + "\n");
         mDysonHandler.sendEvent(new RunnableEvent(mContext, builder.topic, builder.build()));
     }
 

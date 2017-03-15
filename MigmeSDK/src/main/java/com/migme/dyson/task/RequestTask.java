@@ -56,7 +56,7 @@ public class RequestTask {
             }
 
             int statusCode = urlConnection.getResponseCode();
-            DebugLog.d(Dyson.TAG, "Dyson event sent >>> statusCode : " + statusCode+"\n");
+            DebugLog.d(Dyson.TAG, "response code : " + statusCode+"\n");
         } catch (MalformedURLException e) {
             e.printStackTrace();
             DebugLog.d(Dyson.TAG, "Dyson event send fail >>> " + e.getMessage() + "\n");

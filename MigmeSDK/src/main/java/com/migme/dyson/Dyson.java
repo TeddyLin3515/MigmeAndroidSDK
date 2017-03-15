@@ -31,11 +31,15 @@ public class Dyson {
         return DebugLog.isDebugMode();
     }
 
+    public DysonTracker newTracker(Context context, String projectName) {
+        return newTracker(context, projectName, "", new String(Base64.decode(BuildConfig.DYSON_PARAM_B, Base64.DEFAULT)), DysonParameter.HTTP.DEFAULT_PRESENCE_PERIOD);
+    }
+
     public DysonTracker newTracker(Context context, String projectName, String projectUID) {
         return newTracker(context, projectName, projectUID, new String(Base64.decode(BuildConfig.DYSON_PARAM_B, Base64.DEFAULT)), DysonParameter.HTTP.DEFAULT_PRESENCE_PERIOD);
     }
 
-    public DysonTracker newTracker(Context context, String projectName, String projectUID, long presencePeriod) {
+    private DysonTracker newTracker(Context context, String projectName, String projectUID, long presencePeriod) {
         return newTracker(context, projectName, projectUID, new String(Base64.decode(BuildConfig.DYSON_PARAM_B, Base64.DEFAULT)), presencePeriod);
     }
 

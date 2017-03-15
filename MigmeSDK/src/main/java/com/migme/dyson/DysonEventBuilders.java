@@ -75,6 +75,10 @@ public class DysonEventBuilders {
             topic = DysonSession.getInstance().getTopic();
         }
 
+        public Event getEvent() {
+            return event;
+        }
+
         public String build() {
             return new Gson().toJson(event.getData());
         }

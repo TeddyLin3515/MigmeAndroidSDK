@@ -31,7 +31,8 @@ public class MainActivity extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         ((TextView) findViewById(R.id.textView4)).setMovementMethod(new ScrollingMovementMethod());
         migmeId = (EditText) findViewById(R.id.editText);
-        mTracker = Dyson.getInstance().newTracker(getApplicationContext(), "migme_test", "554433221100", 10000);
+        mTracker = Dyson.getInstance().newTracker(getApplicationContext(), "Migme game");
+        mTracker.setProjectUserId("Migme game user id");
         Dyson.getInstance().setDebugMode(true);
         buildLogMsg("Initialize done...");
         buildLogMsg("Debug mode >>> "+Dyson.getInstance().isDebugMode());
@@ -92,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void cleanMigmeId(View view) {
-        mTracker.cleanMigmeId();
+        mTracker.clearMigmeId();
         binding.setMigmeId("");
         migmeId.setText("");
         buildLogMsg("clearMigmeId");
